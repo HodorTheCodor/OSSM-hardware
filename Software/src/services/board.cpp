@@ -1,9 +1,20 @@
 #include "board.h"
 
+#include <Wire.h>
+#include <Adafruit_INA260.h>
+Adafruit_INA260 ina260;
+
 bool USE_SPEED_KNOB_AS_LIMIT = true;
 
 void initBoard() {
     Serial.begin(115200);
+
+    Wire.begin(Pins::I2C::sda, Pins::I2C::scl);
+
+    if (!ina260.begin(0x40, &Wire)) {
+        Serial.println("Couldn't find INA260 chip!");
+        while (1);
+    }
 
     pinMode(Pins::Remote::encoderSwitch,
             INPUT_PULLDOWN);  // Rotary Encoder Pushbutton
