@@ -27,7 +27,7 @@ namespace Pins {
         constexpr int oledReset = -1;
 
         // Pin used by RGB LED
-        constexpr int ledPin = 25;
+        constexpr int ledPin = 8;
     }
 
     namespace Driver {
@@ -35,11 +35,11 @@ namespace Pins {
 
         // Pin that pulses on servo/stepper steps - likely labelled PUL on
         // drivers.
-        constexpr int motorStepPin = 14;
+        constexpr int motorStepPin = 7;
         // Pin connected to driver/servo step direction - likely labelled DIR on
         // drivers. N.b. to iHSV57 users - DIP switch #5 can be flipped to
         // invert motor direction entirely
-        constexpr int motorDirectionPin = 27;
+        constexpr int motorDirectionPin = 9;
         // Pin for motor enable - likely labelled ENA on drivers.
         constexpr int motorEnablePin = 26;
 
@@ -57,7 +57,7 @@ namespace Pins {
     }
 
     namespace GPIO {
-        constexpr int pin1 = 2;
+        constexpr int pin1 = 14;
         constexpr int pin2 = 15;
         constexpr int pin3 = 22;
         constexpr int pin4 = 33;
@@ -76,7 +76,7 @@ namespace Pins {
 
         // The rotary encoder requires at least two pins to function.
         constexpr int encoderA = 18;
-        constexpr int encoderB = 5;
+        constexpr int encoderB = 17;
         constexpr int encoderPower =
             -1; /* Put -1 of Rotary encoder Vcc is connected directly to 3,3V;
                    else you can use declared output pin for powering rotary
