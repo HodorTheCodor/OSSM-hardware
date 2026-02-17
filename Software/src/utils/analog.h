@@ -3,6 +3,9 @@
 
 #include "Arduino.h"
 
+#include <Adafruit_INA260.h>
+#include "services/board.h"
+
 typedef struct {
     int pinNumber;
     int samples;
@@ -22,6 +25,10 @@ static float getAnalogAveragePercent(SampleOnPin sampleOnPin) {
     // TODO: Might want to add a dead-band
     percentage = 100.0f * average / 4096.0f;  // 12 bit resolution
     return percentage;
+}
+
+static float getCurrentMilliAmps() {
+    return ina260.readCurrent();
 }
 
 #endif  // OSSM_SOFTWARE_ANALOG_H

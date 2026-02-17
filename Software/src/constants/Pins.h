@@ -30,6 +30,11 @@ namespace Pins {
         constexpr int ledPin = 8;
     }
 
+    namespace I2C {
+        constexpr int sda = 2;
+        constexpr int scl = 4;
+    }
+
     namespace Driver {
         constexpr int currentSensorPin = 36;
 

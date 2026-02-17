@@ -4,6 +4,9 @@
 #include <Arduino.h>
 #include <NimBLEDevice.h>
 
+#include <Adafruit_INA260.h>
+extern Adafruit_INA260 ina260;
+
 #include "constants/Pins.h"
 #include "services/encoder.h"
 #include "services/stepper.h"

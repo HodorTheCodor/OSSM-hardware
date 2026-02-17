@@ -34,8 +34,11 @@ void clearHoming() {
     calibration.measuredStrokeSteps = 0;
 
     // Recalibrate the current sensor offset.
-    calibration.currentSensorOffset = (getAnalogAveragePercent(
-        SampleOnPin{Pins::Driver::currentSensorPin, 1000}));
+    //calibration.currentSensorOffset = (getAnalogAveragePercent(
+    //    SampleOnPin{Pins::Driver::currentSensorPin, 1000}));
+
+    // Recalibrate the current sensor offset.
+    calibration.currentSensorOffset = (getCurrentMilliAmps());
 }
 
 static void startHomingTask(void *pvParameters) {
@@ -89,8 +92,12 @@ static void startHomingTask(void *pvParameters) {
         }
 
         // measure the current analog value.
-        float current = getAnalogAveragePercent(
-                            SampleOnPin{Pins::Driver::currentSensorPin, 200}) -
+        //float current = getAnalogAveragePercent(
+        //                    SampleOnPin{Pins::Driver::currentSensorPin, 200}) -
+        //                calibration.currentSensorOffset;
+
+        // measure the current analog value.
+        float current = getCurrentMilliAmps() -
                         calibration.currentSensorOffset;
 
         ESP_LOGV("Homing", "Current: %f", current);
