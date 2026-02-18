@@ -40,29 +40,36 @@ void setup() {
 
     ESP_LOGD("MAIN", "Starting OSSM");
 
-    initWM();
+    Serial.println("Start initWM");
+    //initWM();
+    Serial.println("End initWM");
 
     // Display
-    initDisplay();
+    //initDisplay();
 
     // Initialize header bar task
-    initHeaderBar();
+    //Serial.println("Start initHeaderBar");
+    //initHeaderBar();
+    //Serial.println("Start initHeaderBar");
 
     // Create OSSM instance for backward compatibility (BLE command handling)
     ossm = new OSSM();
 
     // Initialize state machine after global state is set up
+    Serial.println("Start initStateMachine");
     initStateMachine();
+    Serial.println("End initStateMachine");
 
     // Initialize LED for BLE and machine status indication
     ESP_LOGI("MAIN", "LED initialized for BLE and machine status indication");
-    updateLEDForMachineStatus();  // Set initial LED state
+    //updateLEDForMachineStatus();  // Set initial LED state
 
     // // link functions to be called on events.
-    button.attachClick([]() { stateMachine->process_event(ButtonPress{}); });
-    button.attachDoubleClick([]() { stateMachine->process_event(DoublePress{}); });
-    button.attachLongPressStart([]() { stateMachine->process_event(LongPress{}); });
+    //button.attachClick([]() { stateMachine->process_event(ButtonPress{}); });
+    //button.attachDoubleClick([]() { stateMachine->process_event(DoublePress{}); });
+    //button.attachLongPressStart([]() { stateMachine->process_event(LongPress{}); });
 
+    /*
     xTaskCreatePinnedToCore(
         [](void *pvParameters) {
             while (true) {
@@ -72,6 +79,7 @@ void setup() {
         },
         "buttonTask", 4 * configMINIMAL_STACK_SIZE, nullptr,
         configMAX_PRIORITIES - 1, nullptr, 0);
+    */
 
     // Initialize NimBLE only when in menu.idle state
     xTaskCreatePinnedToCore(

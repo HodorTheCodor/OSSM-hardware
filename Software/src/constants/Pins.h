@@ -44,7 +44,7 @@ namespace Pins {
         // Pin connected to driver/servo step direction - likely labelled DIR on
         // drivers. N.b. to iHSV57 users - DIP switch #5 can be flipped to
         // invert motor direction entirely
-        constexpr int motorDirectionPin = 9;
+        constexpr int motorDirectionPin = 9; //9
         // Pin for motor enable - likely labelled ENA on drivers.
         constexpr int motorEnablePin = 26;
 
@@ -58,13 +58,13 @@ namespace Pins {
 
     namespace Wifi {
         // Pin for Wi-Fi reset button (optional)
-        constexpr int resetPin = 23;
+        constexpr int resetPin = 41;
     }
 
     namespace GPIO {
         constexpr int pin1 = 14;
         constexpr int pin2 = 15;
-        constexpr int pin3 = 22;
+        constexpr int pin3 = 42;
         constexpr int pin4 = 33;
     }
 
@@ -72,16 +72,16 @@ namespace Pins {
      * potentiometer and an encoder which clicks*/
     namespace Remote {
 
-        constexpr int speedPotPin = 34;
+        constexpr int speedPotPin = 1;
 
         // This switch occurs when you press the right button in.
         // With the current state of the code this will send out a "ButtonPress"
         // event automatically.
-        constexpr int encoderSwitch = 35;
+        constexpr int encoderSwitch = 21;
 
         // The rotary encoder requires at least two pins to function.
-        constexpr int encoderA = 18;
-        constexpr int encoderB = 17;
+        constexpr int encoderA = 1;
+        constexpr int encoderB = 3;
         constexpr int encoderPower =
             -1; /* Put -1 of Rotary encoder Vcc is connected directly to 3,3V;
                    else you can use declared output pin for powering rotary
@@ -91,8 +91,8 @@ namespace Pins {
         constexpr int displayData = 21;
         constexpr int displayClock = 22;
 #else
-        constexpr int displayData = 21;
-        constexpr int displayClock = 19;
+        constexpr int displayData = 2; //21
+        constexpr int displayClock = 4; //19, 40
 #endif
         constexpr int encoderStepsPerNotch = 2;
     }

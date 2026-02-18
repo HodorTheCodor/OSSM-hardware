@@ -363,6 +363,6 @@ void initNimble() {
     pAdvertising->start();
 
     xTaskCreatePinnedToCore(
-        nimbleLoop, "nimbleLoop", 5 * configMINIMAL_STACK_SIZE, pServer,
-        configMAX_PRIORITIES - 1, nullptr, Tasks::stepperCore);
+        nimbleLoop, "nimbleLoop", 12288, pServer,
+        2, nullptr, Tasks::stepperCore);
 }

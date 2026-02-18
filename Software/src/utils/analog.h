@@ -28,7 +28,10 @@ static float getAnalogAveragePercent(SampleOnPin sampleOnPin) {
 }
 
 static float getCurrentMilliAmps() {
-    return ina260.readCurrent();
+    float milliamps = ina260.readCurrent();
+    if (milliamps < 0) {
+        return milliamps * -1;
+    } else return milliamps;
 }
 
 #endif  // OSSM_SOFTWARE_ANALOG_H

@@ -21,6 +21,9 @@ void initDisplay() {
             ESP_LOGE(TAG, "Failed to create display mutex");
         }
     }
+    Serial.printf("Display I2C pins: SDA=%d SCL=%d\n",
+                Pins::Remote::displayData, Pins::Remote::displayClock);
+    Serial.printf("I2C pins: SDA=%d SCL=%d\n", Pins::I2C::sda, Pins::I2C::scl);
     display.begin();
     display.setI2CAddress(0x3C << 1);  // 0x3C is common for 128x64 OLEDs
     display.setPowerSave(0);
